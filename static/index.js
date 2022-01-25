@@ -221,17 +221,19 @@ function refreshGameLayer(box, loop, offset) {
             });
             r.className += ' t' + (Math.floor(Math.random() * 1000) % 5 + 1);
             r.notEmpty = true;
-            let x = Math.floor(Math.random() * 1000) % 4;
-            if (x == last) {
-                if (x % 4 != 3) {
-                    x++;
+            if (j < box.children.length - 4) {
+                let x = Math.floor(Math.random() * 1000) % 4;
+                if (x == last) {
+                    if (x % 4 != 3) {
+                        x++;
+                    }
+                    else {
+                        x--;
+                    }
                 }
-                else {
-                    x--;
-                }
+                last = x;
+                i = (Math.floor(j / 4) + 1) * 4 + x;
             }
-            last = x;
-            i = (Math.floor(j / 4) + 1) * 4 + x;
         } else {
             r.notEmpty = false;
         }
